@@ -1,0 +1,59 @@
+int main()
+{
+	int num, temp;
+
+	cout<<"Enter number of Process: ";
+	cin>>num;
+
+	cout<<"...Enter the process ID...\n";
+	for(int i=0; i<num; i++)
+	{
+		cout<<"...Process "<<i+1<<"...\n";
+		cout<<"Enter Process Id: ";
+		cin>>mat[i][0];
+		cout<<"Enter Arrival Time: ";
+		cin>>mat[i][1];
+		cout<<"Enter Burst Time: ";
+		cin>>mat[i][2];
+	}
+	arrangeArrival(num, mat);
+	minBurstTime(num, mat);
+	cout<<"\n";
+	cout<<"Final Result of SJF\n";
+	cout<<"Process ID\tArrival Time\tBurst Time\tCompletion Time\tWaiting Time\tTurnaround Time\n";
+	for(int i=0; i<num; i++)
+	{
+		cout<<mat[i][0]<<"\t\t"<<mat[i][1]<<"\t\t"<<mat[i][2]<<"\t\t"<<mat[i][3]<<"\t\t"<<mat[i][4]<<"\t\t"<<mat[i][5]<<"\n";
+	}
+	cout<<"\n";
+	int avTAT=0,avWT=0;
+	for(int i=0;i<num;i++)
+	{
+		avTAT += mat[i][5];
+		avWT += mat[i][4];
+	}
+	avTAT = avTAT/num;
+	avWT = avWT/num;
+	cout<< "Average Turnaround time: "<<avTAT<<"\n";
+	cout<< "Average Waiting Time: "<<avWT << "\n";
+	maxBurstTime(num,mat);
+	cout<<"\n";
+	cout<<"Final Result of Designed Scheduler\n";
+	cout<<"Process ID\tArrival Time\tBurst Time\tCompletion Time\tWaiting Time\tTurnaround Time\n";
+	for(int i=0; i<num; i++)
+	{
+		cout<<mat[i][0]<<"\t\t"<<mat[i][1]<<"\t\t"<<mat[i][2]<<"\t\t"<<mat[i][3]<<"\t\t"<<mat[i][4]<<"\t\t"<<mat[i][5]<<"\n";
+	}
+	cout<<"\n";
+	avTAT=0;
+	avWT=0;
+	for(int i=0;i<num;i++)
+	{
+		avTAT += mat[i][5];
+		avWT += mat[i][4];
+	}
+	avTAT = avTAT/num;
+	avWT = avWT/num;
+	cout<< "Average Turnaround time: "<<avTAT<<"\n";
+	cout<< "Average Waiting Time: "<<avWT << "\n";
+}
